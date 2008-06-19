@@ -37,7 +37,7 @@ class tx_yuieditor_pi1 extends tslib_pibase {
 	var $scriptRelPath = 'pi1/class.tx_yuieditor_pi1.php';	// Path to this script relative to the extension dir.
 	var $extKey        = 'yuieditor';	// The extension key.
 	var $pi_checkCHash = true;
-	
+
 	/**
 	 * The main method of the PlugIn
 	 *
@@ -56,9 +56,8 @@ class tx_yuieditor_pi1 extends tslib_pibase {
         $this->yui =  t3lib_div::makeInstance('tx_yuieditor_sv1');
         // Flexform values
         $this->code = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'bereich', 'sDEF');
-        
+
         // Processing...
-	    $this->yui->addHeaderFiles();
 	    $this->yui->renderEditor('test');
 	    $content = '<textarea id="test">test</textarea>';
 		return $this->pi_wrapInBaseClass($content);

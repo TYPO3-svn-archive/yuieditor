@@ -36,8 +36,12 @@ class tx_yuieditor_sv1 extends t3lib_svbase {
 				var $prefixId = 'tx_yuieditor_sv1';		// Same as class name
 				var $scriptRelPath = 'sv1/class.tx_yuieditor_sv1.php';	// Path to this script relative to the extension dir.
 				var $extKey = 'yuieditor';	// The extension key.
-	
+
                 function addHeaderFiles(){
+                    /* DEPRECATED */
+				}
+
+				private function headerFiles(){
 				    $GLOBALS['TSFE']->pSetup['bodyTagAdd'] = 'class="yui-skin-sam"';
 				    $GLOBALS['TSFE']->additionalHeaderData[$this->prefixId] .= '<!-- Skin CSS file -->
 					<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/skin.css">
@@ -53,8 +57,9 @@ class tx_yuieditor_sv1 extends t3lib_svbase {
 					<script src="http://yui.yahooapis.com/2.5.2/build/editor/editor-beta-min.js"></script>
 					<link href="typo3conf/ext/yuieditor/pi1/ext_style.css" type="text/css" rel="stylesheet" />';
 				}
-				
+
 				function renderEditor($id, $width = 500, $height = 300){
+				    $this->headerFiles();
 				    $GLOBALS['TSFE']->JSeventFuncCalls['onload'][$this->extKey] =  '
 					var myEditor = new YAHOO.widget.Editor(\''.$id.'\', {
 				    	height: \''.$height.'px\',
