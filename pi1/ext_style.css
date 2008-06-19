@@ -1,0 +1,7 @@
+.yui-overlay, .yui-panel-container {
+	z-index: 125;
+}
+
+.yui-editor-skipheader{
+	padding: 0 ! important;
+}
